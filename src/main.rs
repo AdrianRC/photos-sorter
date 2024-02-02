@@ -2,8 +2,8 @@ use std::fs;
 use std::path::Path;
 
 fn main() {
-    let folder_path = "./BeautyShots";
-    organize_files(folder_path).expect("File organization failed");
+    const FOLDER_PATH: &str = "./BeautyShots";
+    organize_files(FOLDER_PATH).expect("File organization failed");
 }
 
 fn organize_files(folder_path: &str) -> std::io::Result<()> {
@@ -12,7 +12,7 @@ fn organize_files(folder_path: &str) -> std::io::Result<()> {
         let path = entry.path();
         if path.is_file() {
             if let Some(file_name) = path.file_name().and_then(|s| s.to_str()) {
-                if file_name.ends_with(".ARW") {
+                if file_name.ends_with(".jpg") {
                     let name_without_extension = &file_name[..file_name.len() - 4]; // Remove ".ARW"
                     const FIXED_SUFFIX: usize = 5; // however many chars are fixed to the end of the name
                     if name_without_extension.len() > FIXED_SUFFIX {
