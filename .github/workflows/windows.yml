@@ -11,7 +11,7 @@ jobs:
     name: windows build
     steps:
     - name: checkout
-      uses: actions/checkout@v3
+      uses: actions/checkout@v4
     - name: Install Rustup using win.rustup.rs
       run: |
         # Disable the download progress bar which can cause perf issues
